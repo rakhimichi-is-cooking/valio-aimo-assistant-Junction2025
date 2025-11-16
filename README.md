@@ -2,11 +2,12 @@
 ### Junction Hackathon 2025 (Helsinki, 14–16 November)  
 **Team: Western Buddies**
 
-Hi! I’m Kirill — thanks for checking out this project.
+Hi! Thanks for checking out this project.
 
 This repository contains the final working version of our solution for the **Zero-Fail Logistics** challenge by **Valio Aimo**, created during **Junction Hackathon 2025** in Helsinki.
 
 Our team **Western Buddies** delivered a complete operator-focused tool that helps Valio Aimo handle delivery issues, product shortages, and customer communication efficiently and transparently.  
+
 The solution emphasizes **practical logic, clear UX, and workflow automation** — without unnecessary complexity or heavy ML stacks.
 
 ---
