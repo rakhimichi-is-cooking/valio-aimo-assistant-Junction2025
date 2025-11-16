@@ -1,50 +1,152 @@
-# Valio AI - Supply Chain Forecasting System
+# 🚚 Valio Aimo – Zero-Fail Logistics Assistant  
+### Junction Hackathon 2025 (Helsinki, 14–16 November)  
+**Team: Western Buddies**
 
-Graph Neural Network-based demand forecasting and shortage detection for supply chain management.
+Hi! I’m Kirill — thanks for checking out this project.
 
-## Features
+This repository contains the final working version of our solution for the **Zero-Fail Logistics** challenge by **Valio Aimo**, created during **Junction Hackathon 2025** in Helsinki.
 
-- **GNN Forecasting**: product relationships using PyTorch Geometric
-- **Shortage Detection**: Multi-factor risk scoring and substitution suggestions
-- **Real-time Predictions**: LSTM+GNN hybrid architecture for demand forecasting
+Our team **Western Buddies** delivered a complete operator-focused tool that helps Valio Aimo handle delivery issues, product shortages, and customer communication efficiently and transparently.  
+The solution emphasizes **practical logic, clear UX, and workflow automation** — without unnecessary complexity or heavy ML stacks.
 
-## Quick Start
+---
 
-### 1. Install Dependencies
+## 🧭 Overview
 
-```bash
-pip install -r requirements.txt
-pip install -r requirements_demo.txt  # For demo features
-```
+This assistant supports logistics operators by enabling them to:
 
-### 2. Build Product Graph
+- Inspect delivery issues and shortage scenarios  
+- Quickly draft customer messages (email, phone, SMS)  
+- View replacement product suggestions  
+- Navigate through a clear, operator-friendly dashboard  
+- Run terminal-based demo tools for scenario exploration  
 
-```bash
-python extract_product_features.py
-python build_product_graph_v2.py
-```
+The project is fully local, lightweight, and easy to run.
 
-This creates a verified graph of 696 products with 111,969 edges from sales data.
+---
 
-### 3. Run Applications
+## 🧩 Key Features
 
-**Shortage Dashboard** (Simple API frontend):
-```bash
-# Start backend
-python -m uvicorn backend.main:app --reload
+- **Shortage & delivery issue inspector**  
+- **Explanation blocks** to guide operator decisions  
+- **Replacement suggestion system** (rule-based, metadata-driven)  
+- **Customer message generator**  
+- **Streamlit dashboard** for real-time case navigation  
+- **Terminal utilities** for demo and debugging  
+- 100% **offline** — no external services required  
 
-# Start frontend
-streamlit run ui/app.py
-```
+---
 
-**Chat Interface**:
-```bash
-# CLI
-python chat.py
+## 👤 My Role
 
-# Web UI
-streamlit run chat_web.py
-```
+During the hackathon I focused on **system design, operator workflows, and integrating all components into a polished, working product**.
+
+My contributions included:
+
+- Designing the full workflow:  
+  **shortage → explanation → replacement → customer message**
+- Building and refining the **Streamlit dashboard**
+- Creating **terminal demo tools** used during testing and the final pitch  
+- Integrating backend logic, data flow, and UI into a cohesive system  
+- Preparing scenario materials and assisting with presentation structure  
+
+In short: **I acted as a systems integrator and product engineer — ensuring that every part of the product worked seamlessly together and was ready to showcase.**
+
+---
+
+## ▶️ How to Run the Project (Step-by-Step)
+
+### 1. Clone the repository
+
+`git clone`
+
+`cd valio-aimo-case`
+
+### 2. Create and activate a virtual environment
+
+`python3 -m venv .venv`
+
+`source .venv/bin/activate`        # macOS / Linux
+
+### or
+
+`.\.venv\Scripts\activate`         # Windows
+
+### 3. Install dependencies
+
+`pip install streamlit plotly pandas numpy requests`
+
+### 4. Data files (IMPORTANT)
+
+The UI requires local data files.
+
+Expected structure:
+
+`ui/data/
+├── valio_aimo_sales_and_deliveries_junction_2025.csv
+├── valio_aimo_purchases_junction_2025.csv`
+
+If these files are missing, the dashboard will run but metrics and graphs will be empty.
+
+---
+
+## ▶️ Using the System
+
+### 1. Launch the Operator Dashboard (UI)
+
+`cd ui`
+
+`streamlit run app.py`
+
+You can:
+
+Inspect shortages and delivery issues
+View suggested replacements
+Generate customer-facing communication
+Navigate scenario data
+
+### 2. Run Backend Logic (optional)
+
+`cd backend`
+
+`python main.py`
+
+Backend includes:
+
+Shortage scenario construction
+Replacement product logic
+Explanation generation
+Basic validation utilities
+
+### 3. Terminal Tools
+
+Full scenario demo:
+
+`python tools/demo_app.py`
+
+CLI-based operator assistant:
+
+`python tools/chat.py`
+
+Web-based chat prototype:
+
+`python tools/chat_web.py`
+
+---
+
+## 🗂️ Key Directories
+
+| Directory        | Description |
+|------------------|-------------|
+| **backend/**     | Core shortage logic, replacement selection, explanation blocks |
+| **ui/**          | Streamlit operator dashboard used in demos |
+| **frontend/**    | Optional UI components and visual prototypes |
+| **models/**      | Product metadata utilities, feature extractors (no ML models) |
+| **tools/**       | CLI tools, demo scripts, terminal chat interfaces |
+| **docs/**        | Pitch script, scenario plans, dashboard notes |
+| **terminal-ui/** | Node-based terminal prototype (not used in final demo) |
+
+---
 
 ## Architecture
 
@@ -67,12 +169,16 @@ streamlit run chat_web.py
 - `build_product_graph_v2.py` - Builds product relationship graph
 - `extract_product_features.py` - Extracts product features
 
+---
+
 ## Data Flow
 
 1. **Graph Construction**: Sales data → Co-purchase patterns → 111,969 edges
 2. **GNN Training**: Historical sequences + Graph structure → Trained model
 3. **Prediction**: Current demand + Neighbor signals → 7-day forecast
 4. **Shortage Detection**: Forecast + Inventory → Risk scores + Substitutes
+
+---
 
 ## Tech Stack
 
@@ -82,10 +188,16 @@ streamlit run chat_web.py
 - **LM Studio** - Local LLM for explanations and vision AI
 - **Pandas + NumPy** - Data processing
 
+---
+
 ## Documentation
 
 - `CLAUDE.md` - Project instructions for AI assistants
 
+---
+
 ## License
 
-Built for Valio Aimo Hackathon 2025
+Built by **Western Buddies** team for Valio Aimo case at Junction Hackathon 2025, Helsinki
+
+
