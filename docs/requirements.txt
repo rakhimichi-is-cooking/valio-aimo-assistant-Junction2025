@@ -1,0 +1,31 @@
+fastapi
+uvicorn
+pandas
+requests
+python-dotenv
+streamlit
+
+# Time-series forecasting
+prophet
+statsmodels
+xgboost
+scikit-learn
+
+# Neural networks
+tensorflow>=2.13.0
+torch>=2.0.0
+sentence-transformers>=2.2.0
+
+# Caching and optimization
+joblib
+redis
+
+# Enhanced data validation
+pydantic
+
+# Numerical computing
+numpy
+scipy
+
+# SMS notifications
+twilio

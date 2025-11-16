@@ -1,0 +1,12 @@
+# Demo Requirements (in addition to main requirements)
+
+streamlit>=1.28.0
+pillow>=10.0.0
+requests>=2.31.0
+
+# Already installed (from main requirements):
+# torch
+# torch-geometric
+# pandas
+# numpy
+# scipy

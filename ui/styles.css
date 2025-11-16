@@ -1,0 +1,516 @@
+/* Valio AI - TradingView-Inspired Professional Design */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Design tokens - Professional Dark Theme */
+:root {
+    --bg-primary: #131722;
+    --bg-secondary: #1e222d;
+    --bg-card: #2a2e39;
+    --bg-hover: #363a45;
+    --border-subtle: #363a45;
+    --border-active: #4a5568;
+    --text-primary: #d1d4dc;
+    --text-secondary: #868993;
+    --text-tertiary: #5d606b;
+    --accent-blue: #2962ff;
+    --accent-blue-light: #3d7eff;
+    --status-critical: #ff5a5a;
+    --status-warning: #ffa726;
+    --status-success: #26a69a;
+    --status-info: #42a5f5;
+}
+
+/* Global styles */
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.stApp {
+    background-color: var(--bg-primary) !important;
+}
+
+.main .block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    max-width: 100% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+/* Typography */
+h1 {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.2 !important;
+}
+
+h2 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 0 12px 0 !important;
+}
+
+h3 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--text-secondary) !important;
+    margin: 0 0 8px 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+p, div, span {
+    color: var(--text-secondary) !important;
+    font-size: 13px !important;
+    line-height: 1.5;
+}
+
+/* Header Section */
+.dashboard-header {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-title {
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    margin: 0 0 4px 0 !important;
+}
+
+.dashboard-subtitle {
+    font-size: 13px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-indicator.active {
+    background: var(--status-success);
+    box-shadow: 0 0 6px var(--status-success);
+}
+
+.status-indicator.inactive {
+    background: var(--text-tertiary);
+}
+
+/* Metric Cards - TradingView Style */
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.metric-card:hover {
+    border-color: var(--border-active);
+    background: var(--bg-hover);
+}
+
+.metric-label {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: var(--text-tertiary) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 8px 0 !important;
+}
+
+.metric-value {
+    font-size: 32px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    line-height: 1.1;
+    margin: 0 !important;
+}
+
+.metric-change {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    margin-top: 4px !important;
+}
+
+.metric-change.positive {
+    color: var(--status-success) !important;
+}
+
+.metric-change.negative {
+    color: var(--status-critical) !important;
+}
+
+.metric-change.neutral {
+    color: var(--text-secondary) !important;
+}
+
+/* Section Cards */
+.section-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    margin: 0 !important;
+}
+
+.section-subtitle {
+    font-size: 12px !important;
+    color: var(--text-tertiary) !important;
+    margin: 4px 0 0 0 !important;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border-subtle);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.product-item {
+    background: var(--bg-card);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease;
+    cursor: pointer;
+}
+
+.product-item:hover {
+    background: var(--bg-hover);
+}
+
+.product-name {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: var(--text-primary) !important;
+    margin: 0 0 4px 0 !important;
+}
+
+.product-sku {
+    font-size: 11px !important;
+    color: var(--text-tertiary) !important;
+    margin: 0 !important;
+    font-family: 'Courier New', monospace;
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.risk-badge.critical {
+    background: rgba(255, 90, 90, 0.15);
+    color: var(--status-critical);
+    border: 1px solid rgba(255, 90, 90, 0.3);
+}
+
+.risk-badge.warning {
+    background: rgba(255, 167, 38, 0.15);
+    color: var(--status-warning);
+    border: 1px solid rgba(255, 167, 38, 0.3);
+}
+
+.risk-badge.normal {
+    background: rgba(38, 166, 154, 0.15);
+    color: var(--status-success);
+    border: 1px solid rgba(38, 166, 154, 0.3);
+}
+
+/* Buttons */
+button[kind="primary"] {
+    background-color: var(--accent-blue) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    padding: 10px 16px !important;
+    transition: all 0.2s ease !important;
+}
+
+button[kind="primary"]:hover {
+    background-color: var(--accent-blue-light) !important;
+}
+
+button[kind="secondary"] {
+    background-color: transparent !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    padding: 10px 16px !important;
+    transition: all 0.2s ease !important;
+}
+
+button[kind="secondary"]:hover {
+    border-color: var(--border-active) !important;
+    color: var(--text-primary) !important;
+    background: var(--bg-hover) !important;
+}
+
+/* Streamlit Metric Override */
+[data-testid="stMetricValue"] {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+}
+
+[data-testid="stMetricLabel"] {
+    font-size: 11px !important;
+    color: var(--text-tertiary) !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+[data-testid="stMetricDelta"] {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background-color: var(--bg-secondary) !important;
+    border-right: 1px solid var(--border-subtle);
+}
+
+section[data-testid="stSidebar"] > div {
+    padding-top: 1.5rem;
+}
+
+section[data-testid="stSidebar"] h2, 
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] p {
+    color: var(--text-primary) !important;
+}
+
+section[data-testid="stSidebar"] input {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+}
+
+section[data-testid="stSidebar"] input::placeholder {
+    color: var(--text-tertiary) !important;
+}
+
+section[data-testid="stSidebar"] input:focus {
+    border-color: var(--accent-blue) !important;
+    outline: none !important;
+}
+
+/* Input fields */
+input[type="text"], input[type="number"], select {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+}
+
+input:focus, select:focus {
+    border-color: var(--accent-blue) !important;
+    outline: none !important;
+}
+
+/* Info boxes */
+div[data-baseweb="notification"] {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 6px !important;
+    padding: 12px 16px !important;
+}
+
+div[data-baseweb="notification"] p {
+    color: var(--text-secondary) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
+
+/* Charts */
+.js-plotly-plot {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+}
+
+/* Dataframe styling */
+[data-testid="stDataFrame"] {
+    font-size: 13px !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 6px !important;
+    overflow: hidden;
+    background: var(--bg-card) !important;
+}
+
+[data-testid="stDataFrame"] th {
+    background-color: var(--bg-secondary) !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    color: var(--text-tertiary) !important;
+    padding: 10px 12px !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+[data-testid="stDataFrame"] td {
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+}
+
+[data-testid="stDataFrame"] tr:hover {
+    background-color: var(--bg-hover) !important;
+}
+
+/* Alert banner */
+.alert-banner {
+    background: linear-gradient(135deg, rgba(255, 90, 90, 0.15) 0%, rgba(255, 167, 38, 0.15) 100%);
+    border: 1px solid var(--status-critical);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+.alert-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--status-critical) !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.alert-content {
+    font-size: 13px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 24px 0;
+    border: none;
+}
+
+/* Column gaps */
+[data-testid="column"] {
+    padding: 0 8px !important;
+}
+
+[data-testid="column"]:first-child {
+    padding-left: 0 !important;
+}
+
+[data-testid="column"]:last-child {
+    padding-right: 0 !important;
+}
+
+/* Badge */
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge.blue {
+    background: rgba(41, 98, 255, 0.15);
+    color: var(--accent-blue);
+}
+
+.badge.green {
+    background: rgba(38, 166, 154, 0.15);
+    color: var(--status-success);
+}
+
+.badge.red {
+    background: rgba(255, 90, 90, 0.15);
+    color: var(--status-critical);
+}
+
+/* Loading spinner */
+.stSpinner > div {
+    border-color: var(--accent-blue) transparent transparent transparent !important;
+}
